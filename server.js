@@ -2,7 +2,7 @@ var http    = require("http");
 var express = require("express");           
 var serveStatic = require('serve-static');  
 var socketIo = require("socket.io");
-
+var port = process.env.PORT || 8080;
 var easyrtc = require("easyrtc"); 
 
 // process name
@@ -28,6 +28,6 @@ var rtc = easyrtc.listen(app, socketServer, null, function(err, rtcRef) {
     });
 });
 
-webServer.listen(8080, function () {
-    console.log('listening on http://localhost:8080');
+webServer.listen(port, function () {
+    console.log('listening on '+port);
 });
